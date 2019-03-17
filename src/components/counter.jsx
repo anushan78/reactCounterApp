@@ -7,6 +7,11 @@ class Counter extends Component {
     tags: ["tag1", "tag2", "tag3"]
   };
 
+  constructor() {
+    super();
+    this.handleIncrement = this.handleIncrement.bind(this);
+  }
+
   styles = {
     fontSize: 60,
     fontWeight: "bold"
@@ -24,6 +29,10 @@ class Counter extends Component {
     );
   }
 
+  handleIncrement() {
+    console.log("Increment Clicked", this);
+  }
+
   render() {
     // return (
     /*       <React.Fragment>
@@ -39,6 +48,12 @@ class Counter extends Component {
       <div>
         {this.state.tags.length === 0 && "Please create a new tag!"}
         {this.renderTags()}
+        <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
       </div>
     );
   }
